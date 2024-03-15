@@ -1,0 +1,1 @@
+FROM <source_image>
