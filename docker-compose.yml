@@ -1,0 +1,19 @@
+version: '3'
+services:
+  app:
+    image: fleurylol/dan-hipp-tracker:latest
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=mysql://fleurylol:11948906HannahB3ar@db:3306/dan-hipp-tracker
+  db:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=11948906HannahB3ar
+      - MYSQL_DATABASE=dan-hipp-tracker
+      - MYSQL_USER=fleurylol
+      - MYSQL_PASSWORD=11948906HannahB3ar
