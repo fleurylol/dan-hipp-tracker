@@ -12,3 +12,10 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Card {
+  id  Int @id @default(autoincrement())
+  name String
+  img String
+  collected Boolean @default(false)
+}
