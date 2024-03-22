@@ -1,9 +1,18 @@
+import prisma from '@/prisma/client';
+import { Card } from '@prisma/client';
+import CardTile from './collection/CardTile';
 import Image from 'next/image';
-
-export default function Home() {
+import classnames from 'classnames';
+export default async function Home(card: Card) {
+  const cards = await prisma.card.findMany();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      lets get hipp
+    <main className="flex ">
+      {/* <h1>Dan Hipp Collection Tracker</h1> */}
+      <div className="grid sm:grid-cols-3 md:grid-cols-5 gap-4">
+        {cards.map((card) => (
+          <CardTile key={card.id} {...card} />
+        ))}
+      </div>
     </main>
   );
 }

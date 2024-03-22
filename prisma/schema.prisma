@@ -18,4 +18,6 @@ model Card {
   name String
   img String
   collected Boolean @default(false)
+  gold Boolean @default(false)
 }
+
