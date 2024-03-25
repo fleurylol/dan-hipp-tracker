@@ -3,7 +3,7 @@ import { Card } from '@prisma/client';
 import CardTile from './collection/CardTile';
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
-import Menu from './home/MainMenu';
+import Menu from './menu/MainMenu';
 import { Search } from 'lucide-react';
 
 export default async function Home(card: Card) {
