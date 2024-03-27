@@ -2,9 +2,8 @@ import prisma from '@/prisma/client';
 import { Card } from '@prisma/client';
 import CardTile from './collection/CardTile';
 import { Progress } from '@/components/ui/progress';
-import { Button } from '@/components/ui/button';
 import Menu from './menu/MainMenu';
-import { Search } from 'lucide-react';
+import SearchMenu from './menu/Search';
 
 export default async function Home(card: Card) {
   const cards = await prisma.card.findMany();
@@ -25,17 +24,21 @@ export default async function Home(card: Card) {
             <div>
               {collected}/{total}
             </div>
-            <Search />
-            <Menu />
+            <>
+              <SearchMenu />
+              <Menu />
+            </>
           </div>
         </div>
       </div>
 
       <div className="m-auto">
         <div className="grid sm:grid-cols-3 md:grid-cols-5 gap-4">
-          {cards.map((card) => (
-            <CardTile key={card.id} {...card} />
-          ))}
+          {cards
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((card) => (
+              <CardTile key={card.id} {...card} />
+            ))}
         </div>
       </div>
     </main>
