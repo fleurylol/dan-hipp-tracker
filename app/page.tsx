@@ -3,7 +3,7 @@ import { Card } from '@prisma/client';
 import CardTile from './collection/CardTile';
 import { Progress } from '@/components/ui/progress';
 import Menu from './menu/MainMenu';
-import SearchMenu from './menu/Search';
+import SearchMenu from './menu/(searchBar)/Search';
 
 export default async function Home(card: Card) {
   const cards = await prisma.card.findMany();
@@ -25,7 +25,7 @@ export default async function Home(card: Card) {
               {collected}/{total}
             </div>
             <>
-              <SearchMenu />
+              <SearchMenu cards={cards} />
               <Menu />
             </>
           </div>
