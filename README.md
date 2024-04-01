@@ -1,7 +1,26 @@
+# Dan Hipp Collection Tracker
 
-    ___                     _               _____                _             
-   /   \__ _ _ __     /\  /(_)_ __  _ __   /__   \_ __ __ _  ___| | _____ _ __ 
-  / /\ / _` | '_ \   / /_/ / | '_ \| '_ \    / /\/ '__/ _` |/ __| |/ / _ \ '__|
- / /_// (_| | | | | / __  /| | |_) | |_) |  / /  | | | (_| | (__|   <  __/ |   
-/___,' \__,_|_| |_| \/ /_/ |_| .__/| .__/   \/   |_|  \__,_|\___|_|\_\___|_|   
-                             |_|   |_|                                         
+This is a tool to keep track of all of your own variants by the lovely artist Dan Hipp in the game Marvel Snap
+
+## Features
+
+- Keep track of all of your own variants
+- Add new variants with ease!
+- Option for a gold border and background combo
+
+## Installation
+
+stuff about the docker setup
+
+## Credits
+
+[Dan Hipp](https://twitter.com/MISTERHIPP)
+[Marvel Snap](https://www.marvelsnap.com/)
+
+## Contributing
+
+Contributions are welcome! If you have any ideas or suggestions, please open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
