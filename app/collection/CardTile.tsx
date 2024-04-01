@@ -7,7 +7,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 const CardTile = (props: Card) => {
-  const { id, img, name, collected } = props;
+  const { id, img, name, collected, gold } = props;
 
   const [collect, setCollected] = useState(collected);
 
@@ -24,7 +24,18 @@ const CardTile = (props: Card) => {
 
   return (
     <div className="flex">
-      <div className="flex transform transition-transform hover:scale-105 flex-col items-center py-4 border-4 rounded-lg bg-stone-900 border-slate-500">
+      <div
+        className={classnames({
+          'flex transform transition-transform hover:scale-105 flex-col items-center py-4 border-4 rounded-lg ':
+            true,
+          'bg-stone-900 border-slate-500 transition-colors duration-900 ease-in-out':
+            !collect && !gold,
+          'bg-stone-700 border-violet-700 transition-colors duration-900 ease-in-out':
+            collect && !gold,
+          'bg-yellow-700 border-yellow-500 transition-colors duration-900 ease-in-out':
+            gold,
+        })}
+      >
         <Image
           className={classnames({
             'filter grayscale transition-filter duration-500 ease-in-out':

@@ -7,17 +7,17 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 
-import { Menu } from 'lucide-react';
-import Link from 'next/link';
+import { Plus } from 'lucide-react';
+
 
 import React from 'react';
 import NewCardForm from './NewCardForm';
 
-const MainMenu = () => {
+const AddCard = () => {
   return (
     <Sheet>
       <SheetTrigger>
-        <Menu />
+        <Plus />
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
@@ -31,4 +31,4 @@ const MainMenu = () => {
   );
 };
 
-export default MainMenu;
+export default AddCard;

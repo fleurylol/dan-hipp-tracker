@@ -49,13 +49,15 @@ const SearchMenu = ({ cards }: SearchBarProps) => {
         </SheetHeader>
         <Input value={searchTerm} onChange={handleInputChange} />
         {results.length > 0 && (
-          <div className="absolute z-10 w-fit rounded-bl-md rounded-br-md border-2 bg-slate-500">
+          <div className="grid grid-cols-2 gap-1 py-2">
             {results.map((result) => (
               <ResultBox
                 key={result.id}
                 id={result.id}
                 name={result.name}
                 img={result.img}
+                goldStatus={result.gold}
+                collectStatus={result.collected}
               />
             ))}
           </div>

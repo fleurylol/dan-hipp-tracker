@@ -2,7 +2,7 @@ import prisma from '@/prisma/client';
 import { Card } from '@prisma/client';
 import CardTile from './collection/CardTile';
 import { Progress } from '@/components/ui/progress';
-import Menu from './menu/MainMenu';
+import Menu from './menu/AddCard';
 import SearchMenu from './menu/(searchBar)/Search';
 
 export default async function Home(card: Card) {
