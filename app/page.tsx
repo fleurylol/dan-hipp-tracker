@@ -4,6 +4,7 @@ import CardTile from './collection/CardTile';
 import { Progress } from '@/components/ui/progress';
 import Menu from './menu/AddCard';
 import SearchMenu from './menu/(searchBar)/Search';
+import ProgressBar from '@/components/ProgressBar';
 
 export default async function Home(card: Card) {
   const cards = await prisma.card.findMany();
@@ -20,10 +21,7 @@ export default async function Home(card: Card) {
             Dan Hipp Collection Tracker
           </h1>
           <div className="flex items-center py-5 space-x-8">
-            <Progress value={progressValue} />
-            <div>
-              {collected}/{total}
-            </div>
+            <ProgressBar total={total} collected={collected} />
             <>
               <SearchMenu cards={cards} />
               <Menu />
