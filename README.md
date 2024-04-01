@@ -14,8 +14,8 @@ stuff about the docker setup
 
 ## Credits
 
-[Dan Hipp](https://twitter.com/MISTERHIPP)
-[Marvel Snap](https://www.marvelsnap.com/)
+- [Dan Hipp](https://twitter.com/MISTERHIPP)
+- [Marvel Snap](https://www.marvelsnap.com/)
 
 ## Contributing
 
