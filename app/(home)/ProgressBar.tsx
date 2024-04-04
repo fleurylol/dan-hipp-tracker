@@ -1,22 +1,24 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Progress } from '@/components/ui/progress';
+import { MyContext } from '@/lib/Context';
 
 interface ProgressBarProps {
   total: number;
   collected: number;
 }
 
+
+
 const ProgressBar = ({ total, collected }: ProgressBarProps) => {
-  const [totalCard, setTotalCard] = useState(total);
-  const [collectedCard, setCollectedCard] = useState(collected);
+  const { totalCard, collectedCard } = useContext(MyContext);
   const progressValue = (collectedCard / totalCard) * 100;
 
   return (
     <>
       <Progress value={progressValue} />
       <div>
-        {collectedCard}/{totalCard}
+        {collectedCard}//{totalCard}
       </div>
     </>
   );

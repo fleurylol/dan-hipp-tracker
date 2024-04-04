@@ -4,14 +4,14 @@ import CardTile from './collection/CardTile';
 import { Progress } from '@/components/ui/progress';
 import Menu from './menu/AddCard';
 import SearchMenu from './menu/(searchBar)/Search';
-import ProgressBar from '@/components/ProgressBar';
+import ProgressBar from '@/app/(home)/ProgressBar';
+import Header from './(home)/Header';
 
 export default async function Home(card: Card) {
   const cards = await prisma.card.findMany();
 
   const total = cards.length;
   const collected = cards.filter((card) => card.collected).length;
-  const progressValue = (collected / total) * 100;
 
   return (
     <main className="flex flex-col">
@@ -20,13 +20,7 @@ export default async function Home(card: Card) {
           <h1 className="text-xl font-bold pt-5">
             Dan Hipp Collection Tracker
           </h1>
-          <div className="flex items-center py-5 space-x-8">
-            <ProgressBar total={total} collected={collected} />
-            <>
-              <SearchMenu cards={cards} />
-              <Menu />
-            </>
-          </div>
+          <Header total={total} collected={collected} cards={cards} />
         </div>
       </div>
 

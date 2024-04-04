@@ -5,12 +5,13 @@ import { cardSchema } from '@/lib/schemas/cardSchema';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import ErrorMessage from '@/components/ErrorMessage';
 import Spinner from '@/components/Spinner';
 import { useRouter } from 'next/navigation';
 import { SheetClose } from '@/components/ui/sheet';
+import { MyContext } from '@/lib/Context';
 
 type CardFormData = z.infer<typeof cardSchema>;
 
@@ -18,6 +19,7 @@ const NewCardForm = () => {
   const [error, setError] = useState('');
   const [isSumbitting, setSubmitting] = useState(false);
   const router = useRouter();
+  const { setTotalCard } = useContext(MyContext);
 
   const {
     register,
@@ -31,7 +33,8 @@ const NewCardForm = () => {
     setSubmitting(true);
     try {
       await axios.post('api/add', data);
-      
+      setTotalCard((prevTotal: number) => prevTotal + 1);
+      router.refresh();
     } catch (error) {
       setSubmitting(false);
     }
