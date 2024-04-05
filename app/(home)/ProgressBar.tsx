@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Progress } from '@/components/ui/progress';
 import { MyContext } from '@/lib/Context';
 
@@ -7,8 +7,6 @@ interface ProgressBarProps {
   total: number;
   collected: number;
 }
-
-
 
 const ProgressBar = ({ total, collected }: ProgressBarProps) => {
   const { totalCard, collectedCard } = useContext(MyContext);
@@ -18,7 +16,7 @@ const ProgressBar = ({ total, collected }: ProgressBarProps) => {
     <>
       <Progress value={progressValue} />
       <div>
-        {collectedCard}//{totalCard}
+        {collectedCard}/{totalCard}
       </div>
     </>
   );

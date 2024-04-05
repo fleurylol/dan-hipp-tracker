@@ -4,21 +4,27 @@ import { Card } from '@prisma/client';
 import Image from 'next/image';
 import classnames from 'classnames';
 import axios from 'axios';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { MyContext } from '@/lib/Context';
 
 const CardTile = (props: Card) => {
   const { id, img, name, collected, gold } = props;
+  const { setCollectedCard } = useContext(MyContext);
 
   const [collect, setCollected] = useState(collected);
 
   const handleClick = async () => {
     try {
       setCollected(!collect); // optimistic update
+      if (!collect) {
+        setCollectedCard((prevCollected: number) => prevCollected + 1);
+      } else {
+        setCollectedCard((prevCollected: number) => prevCollected - 1);
+      } 
       await axios.patch(`api/collect/${id}`, { collected: !collect });
-      // setCollected(!collect); // toggle the collected state
     } catch (error) {
       console.error(error);
-      setCollected(collected); // revert back to original state
+      setCollected(collected);
     }
   };
 
