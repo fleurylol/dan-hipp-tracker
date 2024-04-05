@@ -20,7 +20,7 @@ const CardTile = (props: Card) => {
         setCollectedCard((prevCollected: number) => prevCollected + 1);
       } else {
         setCollectedCard((prevCollected: number) => prevCollected - 1);
-      } 
+      }
       await axios.patch(`api/collect/${id}`, { collected: !collect });
     } catch (error) {
       console.error(error);
@@ -51,8 +51,9 @@ const CardTile = (props: Card) => {
           src={img}
           alt={name}
           width={220}
-          height={100}
+          height={220}
           onClick={handleClick}
+          priority
         />
       </div>
     </div>

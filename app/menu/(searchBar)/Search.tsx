@@ -25,8 +25,6 @@ const SearchMenu = ({ cards }: SearchBarProps) => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
 
-    console.log(cards); // Log the value of cards to the console
-
     if (event.target.value !== '' && cards) {
       setResults(
         cards.filter((card) =>
