@@ -3,6 +3,7 @@ const nextConfig = {
   images: {
     domains: ['game-assets.snap.fan', 'snap.fan'],
   },
+  output: 'standalone',
 };
 
 export default nextConfig;
