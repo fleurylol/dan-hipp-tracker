@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './(home)/Header';
 import CardTile from './collection/CardTile';
 import { Card } from '@prisma/client';
@@ -14,13 +14,14 @@ interface MainPageProps {
 const Main = ({ total, collected, cards }: MainPageProps) => {
   const [totalCard, setTotalCard] = useState(total);
   const [collectedCard, setCollectedCard] = useState(collected);
+
   return (
     <>
       <MyContext.Provider
         value={{ totalCard, setTotalCard, collectedCard, setCollectedCard }}
       >
-        <div className="text-center">
-          <div className="m-auto w-7/12">
+        <div className="bg-neutral-800 sticky top-0 z-50">
+          <div className="m-auto w-7/12 text-center">
             <h1 className="text-xl font-bold pt-5">
               Dan Hipp Collection Tracker
             </h1>

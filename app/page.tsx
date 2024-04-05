@@ -9,7 +9,7 @@ export default async function Home(card: Card) {
   const collected = cards.filter((card) => card.collected).length;
 
   return (
-    <main className="flex flex-col pb-5">
+    <main className="flex flex-col pb-5 h-full">
       <Main cards={cards} total={total} collected={collected} />
     </main>
   );
