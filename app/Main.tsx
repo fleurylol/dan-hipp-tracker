@@ -4,6 +4,8 @@ import Header from './(home)/Header';
 import CardTile from './collection/CardTile';
 import { Card } from '@prisma/client';
 import { MyContext } from '@/lib/Context';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 interface MainPageProps {
   cards: Card[];
@@ -14,7 +16,14 @@ interface MainPageProps {
 const Main = ({ total, collected, cards }: MainPageProps) => {
   const [totalCard, setTotalCard] = useState(total);
   const [collectedCard, setCollectedCard] = useState(collected);
+  const { status } = useSession();
+  const router = useRouter();
 
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/api/auth/signin');
+    }
+  }, [status, router]);
   return (
     <>
       <MyContext.Provider
